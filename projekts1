@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <style>
+        * {
+            #border: 1px solid red;
+        }
+
+        .row {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Prece!</h1>
+    <img alt="PRECES BILDE">
+    <div class="row">
+        <div>Preces cena</div>
+        <div id="cena"></div>
+    </div>
+    <div class="row">
+        <div>Preces krāsa</div>
+        <div id="Krāsa"></div>
+    </div>
+    <div class="row">
+        <div>Preces svars</div>
+        <div id="Svars"></div>
+    </div>
+    
+    <div class="row">
+        <div>Preces garums</div>
+        <div id="garums"></div>
+    </div>
+    
+    <div class="row">
+        <div>Preces platums</div>
+        <div id="platums"></div>
+    </div>
+
+
+
+
+    <script>
+        function prece(cena, krasa, svars, garums, platums) {
+            this.cena = cena;
+            this.krasa = krasa;
+            this.svars = svars;
+            this.garums = garums;
+            this.platums = platums;
+        }
+
+        var prece1 = new prece(100, "sarkana", 70);
+        var prece2 = new prece(50, "dzeltena", 70);
+   
+
+
+        document.getElementById("cena").innerHTML = prece1.cena;
+        var b = document.getElementById("Krāsa");
+        b.innerHTML = prece1.krasa;
+        var c = document.getElementById("Svars");
+        c.innerHTML = prece1.svars;
+        var d = document.getElementById("garums");
+        d.innerHTML = prece2.garums;
+        var e = document.getElementById("platums");
+        e.innerHTML = prece2.platums;
+        
+        
+    </script>
+</body></html>
+
