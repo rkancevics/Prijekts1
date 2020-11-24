@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <style>
+        .row {
+            display: flex;
+        }
+
+        #container {
+            border: 5px solid red;
+            padding: 10px;
+            display: inline-block;
+            text-align: center;
+            background-color: brown;
+            color: orangered;
+            font-size: 20px;
+        }
+
+        img {
+            max-width: 200px;
+            transition: transform .2s;
+        }
+
+        img:hover {
+            transform: scale(1.5);
+        }
+
+        .tag {
+            padding-right: 10px;
+            margin-right: 10px;
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+
+
+            text-align: left;
+        }
+
+        .data {
+            border-bottom: 1px solid black;
+        }
+
+        #buy {
+            color: white;
+            background-color: red;
+            font-size: 20px;
+            transition: background-color 2s;
+        }
+
+        #data-set {
+            padding: 6px;
+        }
+
+        #buy:hover {
+            background-color: white;
+            color: red;
+
+        }
+
+        #buy:active {
+            background-color: black;
+            color: blue;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Preces objekta sakums -->
+
+    <div id="container">
+        <h1>Auto</h1>
+        <img src="/images/car.jpg" alt="NAV Auto BILDE">
+        <div class="row" id="data-set">
+            <div id="tags">
+                <div class="tag">Auto cena</div>
+                <div class="tag">Auto krāsa</div>
+                <div class="tag">Auto svars</div>
+            </div>
+            <div id="info">
+                <div id="cena" class="data">CENA</div>
+                <div id="Krāsa" class="data"></div>
+                <div id="Svars" class="data"></div>
+            </div>
+
+        </div>
+        <button id="buy">Pirkt</button>
+    </div>
+
+    <!-- Preces objekta beigas -->
+
+
+
+
+
+    <script>
+        function Auto(cena, krasa, svars) {
+            this.cena = cena;
+            this.krasa = krasa;
+            this.svars = svars;
+        }
+
+        var Auto1 = new Auto(100000, "baltimelna", 2000);
+
+
+
+
+        document.getElementById("cena").innerHTML = Auto1.cena;
+        var c = document.getElementById("Krāsa");
+        c.innerHTML = Auto1.krasa;
+        var c = document.getElementById("Svars");
+        c.innerHTML = Auto1.svars;
+    </script>
+</body></html>
