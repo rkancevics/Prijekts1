@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head></head>
+    
+    <body>
+  <script>
+        
+        var nauda = 10000;
+      var precu_skaits = 10;
+        var cena = 50;
+         
+      if (precu_skaits > 0){
+          
+          alert("Prece ir noliktava");
+          
+          
+        
+       if (cena < nauda){
+          
+          alert("Prece nopirkta");
+          
+          }  
+      }
+        
+        </script>  
+    
+    
+    
+    
+    </body>
+
+
+
+</html>
+
+
+2. Kods uzd.
+<!DOCTYPE HTML>
+
+<html>
+
+<head></head>
+    
+    <body>
+  <script>
+        
+        var a = 10;
+        var b = 20;
+         
+      if (a<b){
+          
+          alert("b");
+          
+          
+        
+       if (a>b){
+          
+          alert("a");
+          
+          }  
+      }
+        
+        </script>  
+    
+    
+    
+    
+    </body>
+
+
+
+</html>
+
+
