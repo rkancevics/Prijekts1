@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+
+<head></head>
+
+<body>
+
+    <button onclick="funkcija()">funkcija</button>
+    <div id="dati">DATI</div>
+
+
+
+
+    <div style="display: flex;">
+        <label> Izvēlies ciparu</label>
+        <input type="number" id="daudzums" min="0">
+        <button onclick="cikls()">cikls</button>
+    </div>
+
+
+    <script>
+        ievaddati = 0;
+
+        function funkcija() {
+
+
+
+            ievaddati = ievaddati + 1;
+
+
+            var text = "";
+
+            for (p = 0; p < ievaddati; p++) {
+                text += p.toString() + " ";
+            }
+
+            document.getElementById("dati").innerHTML = text;
+
+
+
+        }
+
+        function cikls() {
+            var daudzums = document.getElementById("daudzums").value;
+            var cikli = "";
+
+            for (p = 0; p < daudzums; p++) {
+                cikli = cikli + "CIKLS" + "<br>";
+            }
+            document.getElementById("dati").innerHTML = cikli;
+        }
+
+    </script>
+
+</body>
+
+</html>
