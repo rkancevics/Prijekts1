@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+     <div class="header">
+  <h1>REKLĀMA PAR AUTO</h1>
+  <p>VISSLABĀKĀ REKLĀMA</p>
+</div>
+    <style>
+        .row {
+            display: flex;
+        }
+
+        #container {
+            margin: 5px;
+            border: 5px solid red;
+            padding: 10px;
+            display: inline-block;
+            text-align: center;
+            background-color: brown;
+            color: orangered;
+            font-size: 20px;
+        }
+
+        img {
+            max-width: 200px;
+            transition: transform .2s;
+        }
+
+        img:hover {
+            transform: scale(1.5);
+        }
+
+        .tag {
+            padding-right: 10px;
+            margin-right: 10px;
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+
+
+            text-align: left;
+        }
+
+        .data {
+            border-bottom: 1px solid black;
+        }
+
+        #buy {
+            color: white;
+            background-color: red;
+            font-size: 20px;
+            transition: background-color 2s;
+        }
+
+        #data-set {
+            padding: 6px;
+        }
+
+        #buy:hover {
+            background-color: white;
+            color: red;
+
+        }
+
+        #buy:active {
+            background-color: black;
+            color: blue;
+
+        }
+    </style>
+</head>
+
+<body>
+    
+    <button onclick="izveidotPreci()">Generet preci</button>
+    <div class="row" id="Objekti"></div>
+
+    <!-- Preces objekta sakums -->
+
+    <div id="container">
+        <h1>Auto</h1>
+       <img src="/images/car.jpg" alt="NAV Auto BILDE">
+        <div class="row" id="data-set">
+            <div id="tags">
+                <div class="tag">Auto cena</div>
+                <div class="tag">Auto krāsa</div>
+                <div class="tag">Auto svars</div>
+            </div>
+            <div id="info">
+                <div id="cena" class="data">CENA</div>
+                <div id="Krāsa" class="data"></div>
+                <div id="Svars" class="data"></div>
+            </div>
+
+        </div>
+        <button id="buy">Pirkt</button>
+    </div>
+
+    <!-- Preces objekta beigas -->
+
+
+
+//no sejienes uz leju
+
+    <script>
+        function Auto(cena, krasa, svars) {
+            this.cena = cena;
+            this.krasa = krasa;
+            this.svars = svars;
+        }
+
+        function izveidotPreci(){
+            
+            var container = document.createElement("div");
+            
+            container.id = "container";
+            
+            
+            var dataset = document.createElement("div");
+            dataset.id ="data-set";
+            
+             var pirkt = document.createElement("button");
+            dataset.id ="buy";
+            pirkt.textContent = "Pirkt";
+            
+            var h1 = document.createElement(h1);
+            h1.textContent = "Prece!";
+            container.appendChild(h1);
+            
+             var bilde = document.createElement("img");
+            bilde.src = "/images/car.jpg";
+            container.appendChild(bilde);
+            
+            
+            container.appendChild(dataset);
+            container.appendChild(pirkt);
+            
+            document.getElementById("Objekti").appendChild(container);
+          
+        }
+        
+        
+        var Auto1 = new Auto(100000, "baltimelna", 2000);
+
+
+
+
+        document.getElementById("cena").innerHTML = Auto1.cena;
+        var c = document.getElementById("Krāsa");
+        c.innerHTML = Auto1.krasa;
+        var c = document.getElementById("Svars");
+        c.innerHTML = Auto1.svars;
+    </script>
+   
+</body></html>
+
