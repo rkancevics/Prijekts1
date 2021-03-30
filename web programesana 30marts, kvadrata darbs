@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+
+<html>
+
+
+<head>
+    <title>Taisnstura speles uzdevums</title>
+    
+    <style>
+    
+        #spele{
+            
+            background: lightblue;
+            border: 10px solid darkgreen;
+            
+        }
+    </style>
+    
+    
+    
+    </head>
+
+
+<body>
+    
+    <canvas id="spele" width="700" height="400"></canvas>
+    
+    
+    
+
+    </body>
+
+
+
+
+</html>
+    
+   
+
+    <script>
+
+        //1. Programmas daļas mainīgie
+        
+       
+        
+const spelesLaukums = document.getElementById("spele");
+
+        const spelesLaukums_ctx = spelesLaukums.getContext("2d");
+         
+        
+spelesLaukums_ctx.fillStyle = 'yellow';
+        spelesLaukums_ctx.strokeStyle = 'black';
+        
+        spelesLaukums_ctx.fillRect(0, 0, 100, 200);
+        spelesLaukums_ctx.strokeRect(0,0, 100, 200);
+        
+    document.addEventListener("keydown", kontroles);
+
+        let speletajs = {
+            
+            x: 20,
+            y: 20,
+            w: 100,
+            h: 200,
+            
+        }
+        
+        //2.Funkcijas
+        
+function main(){
+    
+    //console.log("Spele strada");
+     main();
+    
+    
+}
+        
+        
+        function saktSpeli(){
+            
+            spelesLaukums_ctx.fillStyle = 'yellow';
+        spelesLaukums_ctx.strokeStyle = 'black';
+        
+        spelesLaukums_ctx.fillRect(speletajs.x, speletajs.y, speletajs.w, speletajs.h);
+        spelesLaukums_ctx.strokeRect(speletajs.x,speletajs.y, speletajs.w, speletajs.h);
+
+        }
+        
+        function kontroles(event){
+            
+            if(event.keyCode == 32){
+               
+               
+                 alert("TEST");
+             }
+            
+        }
+        
+     //3. Pati programma   
+        
+        saktSpeli();
+        main();
+
+
+</script>
