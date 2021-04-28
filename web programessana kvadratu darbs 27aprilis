@@ -1,0 +1,225 @@
+<!DOCTYPE HTML>
+
+<html>
+
+
+<head>
+    <title>Taisnstura speles uzdevums</title>
+    
+    <style>
+    
+        #spele{
+            
+            background: lightblue;
+            border: 10px solid darkgreen;
+            
+        }
+    </style>
+    
+    
+    
+    </head>
+
+
+<body>
+    
+    <canvas id="spele" width="700" height="400"></canvas>
+    
+    
+    
+
+    </body>
+
+
+
+
+</html>
+    
+   
+
+    <script>
+
+        //1. Programmas daļas mainīgie
+        
+       
+        
+const spelesLaukums = document.getElementById("spele");
+
+        const spelesLaukums_ctx = spelesLaukums.getContext("2d");
+         
+        
+spelesLaukums_ctx.fillStyle = 'yellow';
+        spelesLaukums_ctx.strokeStyle = 'black';
+        
+   
+    document.addEventListener("keydown", kontroles);
+
+        let speletajs = {
+            
+            x: 70,
+            y: 50,
+            w: 50,
+            h: 50,
+            
+        
+     
+             
+        }
+        
+        let ediens = {
+            
+            x: 200,
+            y: 70,
+            w: 20,
+            h: 20,
+            
+        
+     
+             
+        }
+        
+        let LK = speletajs.x;
+        let LL = speletajs.x + speletajs.w;
+        let MK = ediens.x;
+        let ML = ediens.x + ediens.w;
+        let LAug = speletajs.y;
+        let LApk = speletajs.y + speletajs.h;
+        let MAug = ediens.y;
+        let MApk = ediens.y + ediens.h;
+        
+        
+        console.log(LApk, MApk);
+        
+        
+        
+        //2.Funkcijas
+        
+function main(){
+    
+    //console.log("Spele strada");
+    //console.log(1);
+    
+    
+      
+    setTimeout(function onTick() {
+        
+  notiritEkranu();
+        uzzimetEdienu();
+        uzzimetSpeletaju();
+     
+        
+      LK = speletajs.x;
+     LL = speletajs.x + speletajs.w;
+     MK = ediens.x;
+     ML = ediens.x + ediens.w;
+     LAug = speletajs.y;
+     LApk = speletajs.y + speletajs.h;
+     MAug = ediens.y;
+     MApk = ediens.y + ediens.h;
+       
+        
+        if((LK <= MK && LL >= ML && LApk >= MApk && LAug <= MAug)){
+            
+            aped();
+            
+        }
+        
+        
+       // console.log(1); 
+          
+        
+    main();
+        
+}, 1)
+}
+        
+        function aped(){
+            
+            ediens.x = Math.floor(Math.random() * 700);
+            ediens.y = Math.floor(Math.random() * 400);
+            
+            console.log(ediens.x, ediens.y);
+            
+            //ediens.w = null;
+            //ediens.h = null;
+            
+        }
+        
+        
+        
+        
+        function uzzimetSpeletaju(){
+            
+            spelesLaukums_ctx.fillStyle = 'yellow';
+        spelesLaukums_ctx.strokeStyle = 'black';
+        
+        spelesLaukums_ctx.fillRect(speletajs.x, speletajs.y, speletajs.w, speletajs.h);
+        spelesLaukums_ctx.strokeRect(speletajs.x,speletajs.y, speletajs.w, speletajs.h);
+
+        }
+        
+        
+        function uzzimetEdienu(){
+            
+            spelesLaukums_ctx.fillStyle = 'red';
+        spelesLaukums_ctx.strokeStyle = 'orange';
+        
+        spelesLaukums_ctx.fillRect(ediens.x, ediens.y, ediens.w, ediens.h);
+        spelesLaukums_ctx.strokeRect(ediens.x,ediens.y,ediens.w, ediens.h);
+
+        }
+        
+        function notiritEkranu(){
+            spelesLaukums_ctx.fillStyle = 'lightblue';
+            spelesLaukums_ctx.strokeStyle = 'darkgreen';
+            
+            spelesLaukums_ctx.fillRect(0,0,700, 400);
+            spelesLaukums_ctx.strokeRect(0,0,700,400);
+            
+        }
+        
+        function kontroles(event){
+            
+            if(event.keyCode == 32){
+    
+               
+                speletajs.h = speletajs.h + 10;
+                speletajs.w = speletajs.w + 10;
+                console.log(speletajs);
+                
+
+             }
+            
+            if(event.keyCode == 39){
+                
+            speletajs.x = speletajs.x + 10;
+                
+            }
+            
+            if(event.keyCode == 37){
+                
+                console.log('Kreisa mala' + speletajs.x)
+                
+                speletajs.x = speletajs.x - 10;
+        }
+            
+            if(event.keyCode == 38){
+                
+                speletajs.y = speletajs.y - 10;
+                
+            }
+            
+            if(event.keyCode == 40){
+                
+                speletajs.y = speletajs.y + 10;
+            }
+        }
+        
+        
+     //3. Pati programma   
+        notiritEkranu();
+        uzzimetSpeletaju();
+        main();
+
+
+</script>
