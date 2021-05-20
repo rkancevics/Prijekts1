@@ -1,0 +1,343 @@
+<!DOCTYPE HTML>
+
+<html>
+
+
+<head>
+    <title>Taisnstura speles uzdevums</title>
+
+    <style>
+
+        #spele{
+
+            background: lightblue;
+            border: 10px solid darkgreen;
+
+        }
+    </style>
+
+
+
+    </head>
+
+
+<body>
+
+    <canvas id="spele" width="700" height="400"></canvas>
+
+
+
+
+    </body>
+
+
+
+
+</html>
+
+
+
+    <script>
+
+        //1. Programmas daļas mainīgie
+
+
+
+const spelesLaukums = document.getElementById("spele");
+
+        const spelesLaukums_ctx = spelesLaukums.getContext("2d");
+
+
+spelesLaukums_ctx.fillStyle = 'yellow';
+        spelesLaukums_ctx.strokeStyle = 'black';
+
+
+    document.addEventListener("keydown", kontroles);
+
+        let speletajs = {
+
+            x: 70,
+            y: 50,
+            w: 50,
+            h: 50,
+        
+
+
+
+        }
+
+        let ediens = {
+
+            x: 200,
+            y: 70,
+            w: 20,
+            h: 20,
+
+
+
+
+        }
+
+        let lode = {
+
+            x: null,
+            y: null,
+            w: null,
+            h: null,
+
+
+        }
+
+
+
+        //mainigie lai aprekinatu speletaju
+
+
+
+        let LK = speletajs.x;
+        let LL = speletajs.x + speletajs.w;
+        let MK = ediens.x;
+        let ML = ediens.x + ediens.w;
+        let LAug = speletajs.y;
+        let LApk = speletajs.y + speletajs.h;
+        let MAug = ediens.y;
+        let MApk = ediens.y + ediens.h;
+
+
+        console.log(LApk, MApk);
+
+
+
+        //2.Funkcijas
+
+function main(){
+
+    //console.log("Spele strada");
+    //console.log(1);
+
+
+
+    setTimeout(function onTick() {
+
+  notiritEkranu();
+        uzzimetEdienu();
+        uzzimetSpeletaju();
+        uzzimetLodi();
+
+    let  LK = speletajs.x;
+    let LL = speletajs.x + speletajs.w;
+   let  MK = ediens.x;
+    let ML = ediens.x + ediens.w;
+   let  LAug = speletajs.y;
+   let  LApk = speletajs.y + speletajs.h;
+    let MAug = ediens.y;
+    let MApk = ediens.y + ediens.h;
+
+
+        if((LK <= MK && LL >= ML && LApk >= MApk && LAug <= MAug)){
+
+            aped();
+
+        }
+
+
+       // console.log(1); 
+
+
+    main();
+
+}, 1)
+}
+
+        function aped(){
+
+            ediens.x = Math.floor(Math.random() * 700);
+            ediens.y = Math.floor(Math.random() * 400);
+
+            speletajs.punkti += 1;
+            speletajs.w += 5;
+            speletajs.h +=5;
+
+            //console.log(ediens.x, ediens.y);
+
+            //ediens.w = null;
+            //ediens.h = null;
+
+        }
+
+function izsauj (){
+    if(speletajs.virziens == 1){
+    lode.x=speletajs.x + speletajs.w +10;
+    lode.y= (speletajs.y + speletajs.h / 2) - 5;
+    lode.h =10;
+    lode.w=10;
+    let i = 0;
+         
+        
+          setTimeout(function onTick() {
+                console.log(i);
+                lode.x += 5;
+
+                if (i < 20) {
+                    i++;
+                    setTimeout(onTick, 10);
+                } else {
+                    lode.x = null;
+                    lode.y = null;
+                    lode.w = null;
+                    lode.h = null;
+                }
+            }, 10);
+        
+    }
+
+   
+    
+   
+  
+        
+
+    if(speletajs.virziens == 2){
+    lode.x=speletajs.x + (speletajs.w / 2) - 5;
+    lode.y= (speletajs.y + speletajs.h / 2) - 5;
+    lode.h =10;
+    lode.w=10;
+
+  for( let i = 0; i < 20; i++){
+
+       lode.y += 5;
+    }
+        
+    }
+    
+   
+   
+        
+    if(speletajs.virziens == 3){
+    lode.x=speletajs.x - (speletajs.w / 2) - 10;
+    lode.y= (speletajs.y + speletajs.h / 2) - 5;
+    lode.h =10;
+    lode.w=10;
+
+  for( let i = 0; i < 20; i++){
+
+       lode.x -= 5;
+    }
+        
+    }
+    
+   
+   
+        
+           
+    if(speletajs.virziens == 4){
+    lode.x=speletajs.x + (speletajs.w / 2) - 5;
+    lode.y= (speletajs.y + speletajs.h / 2) + 10;
+    lode.h =10;
+    lode.w=10;
+
+  for( let i = 0; i < 20; i++){
+
+       lode.y -= 5;
+    }
+        
+    }
+    
+   
+}   
+        
+        function uzzimetLodi(){
+
+
+       spelesLaukums_ctx.fillStyle = 'crimson';
+        spelesLaukums_ctx.strokeStyle = 'black';
+
+        spelesLaukums_ctx.fillRect(lode.x, lode.y, lode.w, lode.h);
+        spelesLaukums_ctx.strokeRect(lode.x,lode.y,lode.w, lode.h);
+
+}
+
+
+
+
+
+        function uzzimetSpeletaju(){
+
+            spelesLaukums_ctx.fillStyle = 'yellow';
+        spelesLaukums_ctx.strokeStyle = 'black';
+
+        spelesLaukums_ctx.fillRect(speletajs.x, speletajs.y, speletajs.w, speletajs.h);
+        spelesLaukums_ctx.strokeRect(speletajs.x,speletajs.y, speletajs.w, speletajs.h);
+
+        }
+
+
+        function uzzimetEdienu(){
+
+            spelesLaukums_ctx.fillStyle = 'red';
+        spelesLaukums_ctx.strokeStyle = 'orange';
+
+        spelesLaukums_ctx.fillRect(ediens.x, ediens.y, ediens.w, ediens.h);
+        spelesLaukums_ctx.strokeRect(ediens.x,ediens.y,ediens.w, ediens.h);
+
+        }
+
+        function notiritEkranu(){
+            spelesLaukums_ctx.fillStyle = 'lightblue';
+            spelesLaukums_ctx.strokeStyle = 'darkgreen';
+
+            spelesLaukums_ctx.fillRect(0,0,700, 400);
+            spelesLaukums_ctx.strokeRect(0,0,700,400);
+
+        }
+
+        function kontroles(event){
+
+            
+            if(event.keyCode == 39){
+
+            speletajs.x = speletajs.x + 10;
+                
+                speletajs.virziens = 1;
+            }
+
+            if(event.keyCode == 37){
+
+                console.log('Kreisa mala' + speletajs.x)
+
+                speletajs.x = speletajs.x - 10;
+                
+                speletajs.virzies = 3
+        }
+
+            if(event.keyCode == 38){
+
+                speletajs.y = speletajs.y - 10;
+                speletajs.virziens = 4
+
+            }
+
+            if(event.keyCode == 40){
+
+                speletajs.y = speletajs.y + 10;
+                
+                speletajs.virziens = 2;
+                
+            }
+            
+             if (event.keyCode == 32) {
+            izsauj();
+        }
+
+    }
+
+                
+
+
+     //3. Pati programma   
+        notiritEkranu();
+        uzzimetSpeletaju();
+        main();
+
+
+</script>
